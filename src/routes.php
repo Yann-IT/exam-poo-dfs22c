@@ -8,10 +8,8 @@ use Facades\Route;
 // Route::post('/animals/create', [AnimalController::class, 'create']);
 Route::get('/posts', [PostController::class, 'index']);
 Route::get('/posts/{id}', [PostController::class, 'show']);
-Route::get('/posts/create', [PostController::class, 'createShow']);
-Route::post('/posts/create', [PostController::class, 'createPost']);
+Route::get('/posts/create', [PostController::class, 'create']);
+Route::post('/posts/create', [PostController::class, 'processCreate']);
 
 
-// Route::post('/posts/{id}/modify/', [PostController::class, 'modify']);
-// ou
-// Route::post('/posts/modify/{id}', [PostController::class, 'modify']);
+Route::get('/posts/modify/{id}', [PostController::class, 'modify']);

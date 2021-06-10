@@ -17,18 +17,27 @@ class PostController
     public function show($request, $id)
     {
         $post = Post::getById($id);
-        // var_dump($post);
         new View('Posts/show', compact("post")); 
     }
 
-    public function createShow($request)
+    public function create($request)
     {
         new View('Posts/create', []);
     }
-    public function createPost($request)
+    public function processCreate($request)
     {
         $body = $request->getBody();
         Post::create($body['titre'], $body['texte']);
         // new View('Posts/index', []);
     }
+
+    public function modify($request, $id){
+        $post = Post::getById($id);
+        new View('Posts/modify', compact("post"));
+    }
+    public function processModify($request){
+        $body = $request->getBody();
+        Post::modify($body['titre'], $body['texte']);
+    }
+
 }

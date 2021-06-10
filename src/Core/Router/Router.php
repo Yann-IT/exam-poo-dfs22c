@@ -53,35 +53,18 @@ class Router
     public function handleRoute($routes)
     {
         foreach ($routes as $route) {
-            // /animals => #^/animals$#
-            // /animals/{id} => #^/animals/(.*)$#
             $regex = '#^' . preg_replace('#/{([^/]*)}#', '/(.?)', $route['uri']) . '$#';
             $matches = [];
             if (preg_match_all($regex, $this->request->getUri(), $matches, PREG_SET_ORDER)) {
                 // Route declarée, correspond à l'uri actuelle de l'utilisateur
 
-                /**
-                 * $matches = [
-                 *     [
-                 *          globalMatch
-                 *          id
-                 *          test
-                 *     ]
-                 * ]
-                 *
-                 * Après l'array_slice:
-                 * $params = [id, test]
-                 */
                 $params = array_slice($matches[0], 1);
 
                 $controllerName = $route['controller'][0];
                 $action = $route['controller'][1];
 
-                // new Controller\AnimalController()
                 $controller = new $controllerName();
-                // $controller->show(...$params)
                 $controller->$action($this->request, ...$params);
-
                 return;
             }
         }

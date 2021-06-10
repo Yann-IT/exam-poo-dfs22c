@@ -3,7 +3,7 @@
 namespace Controllers;
 
 use Core\View;
-use Models\Post;
+use Models\{Post, Comment};
 
 class PostController
 {
@@ -17,7 +17,8 @@ class PostController
     public function show($request, $id)
     {
         $post = Post::getById($id);
-        new View('Posts/show', compact("post")); 
+        $comments = Comment::getCommentsByPostId($id);
+        new View('Posts/show', compact("post", "comments")); 
     }
 
     public function create($request)

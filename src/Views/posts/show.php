@@ -7,4 +7,5 @@ require(PATH_TO_VIEWS.'header.php');
     <p><?= date("D d F, Y",mktime(0,0,0, 6, 10, 2021));?></p>
     <div><?= $post->content;?></div>
     <a href="modify/<?= $post->id;?>">Modifier</a>
+    <a href="delete/<?= $post->id;?>">Supprimer</a>
 <?php require(PATH_TO_VIEWS.'footer.php');?>

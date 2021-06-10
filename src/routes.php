@@ -13,3 +13,5 @@ Route::post('/posts/create', [PostController::class, 'processCreate']);
 
 
 Route::get('/posts/modify/{id}', [PostController::class, 'modify']);
+Route::post('/posts/modify/{id}', [PostController::class, 'processModify']);
+Route::get('/posts/delete/{id}', [PostController::class, 'delete']);

@@ -35,9 +35,12 @@ class PostController
         $post = Post::getById($id);
         new View('Posts/modify', compact("post"));
     }
-    public function processModify($request){
+    public function processModify($request, $id){
         $body = $request->getBody();
-        Post::modify($body['titre'], $body['texte']);
+        Post::modify($id, $body['title'], $body['content']);
+    }
+    public function delete($request, $id){
+        Post::delete($id);
     }
 
 }

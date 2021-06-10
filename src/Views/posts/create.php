@@ -3,7 +3,7 @@ require(PATH_TO_VIEWS.'header.php');
 ?>
 <h2>Ajouter un article :</h2>
   <h3>Titre de votre Article :</h3>
-  <form action="create" method="post" enctype="multipart/form-data">
+  <form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
       <input type="text" class="form-control" id="usr" name="titre">
     </div>

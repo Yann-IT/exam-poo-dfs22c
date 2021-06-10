@@ -2,7 +2,9 @@
 
 use Controllers\{AnimalController, PostController, CommentController};
 use Facades\Route;
-Route::get('/posts', [PostController::class, 'index']);
+
+
+Route::get('/', [PostController::class, 'index']);
 Route::get('/posts/{id}', [PostController::class, 'show']);
 Route::get('/posts/create', [PostController::class, 'create']);
 Route::post('/posts/create', [PostController::class, 'processCreate']);

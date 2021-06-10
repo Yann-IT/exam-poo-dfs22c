@@ -18,10 +18,7 @@
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="#">Home</a>
-        </li>
-        <li class="nav-item">
-          <button class="nav-link bg-gray-300 hover:bg-red-700">Modify</button>
+          <a class="nav-link" aria-current="page" href="/">Home</a>
         </li>
       </ul>
     </div>

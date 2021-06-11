@@ -27,7 +27,7 @@ require(PATH_TO_VIEWS.'header.php');
                                 </div>
                             </div>
                             <a href="/../comments/modify/<?= $comment->id;?>">Modifier</a>
-                            <a href="delete/<?= $comment->id;?>">Supprimer</a>
+                            <a href="/../comments/delete/<?= $comment->id;?>">Supprimer</a>
                         </div>
                     </div>
     <?php endforeach; ?>

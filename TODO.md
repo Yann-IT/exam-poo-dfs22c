@@ -2,5 +2,5 @@
 
 - redirection
 - css
-- supprimer animal
-- regler soucis de routes (id:10)
+- ~~supprimer animal~~
+- ~~régler soucis de routes (id:10)~~

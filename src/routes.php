@@ -1,6 +1,6 @@
 <?php
 
-use Controllers\{AnimalController, PostController, CommentController};
+use Controllers\{PostController, CommentController};
 use Facades\Route;
 
 

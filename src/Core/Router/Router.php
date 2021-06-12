@@ -43,8 +43,8 @@ class Router
 
     public function run()
     {
-        // $this->test(self::$routes);
         if (array_key_exists($this->request->getMethod(), self::$routes)) {
+            // $this->test(self::$routes[$this->request->getMethod()]);
             $this->handleRoute(self::$routes[$this->request->getMethod()]);
 
             return;
@@ -56,7 +56,8 @@ class Router
     public function handleRoute($routes)
     {
         foreach ($routes as $route) {
-            $regex = '#^' . preg_replace('#/{([^/]*)}#', '/([^/]*?)', $route['uri']) . '$#';
+            $regex = '#^' . preg_replace('#/{([^/]*)}#', '/([0-9]*?)', $route['uri']) . '$#';
+            // $regex = '#^' . preg_replace('#/{([^/]*)}#', '/(.?)', $route['uri']) . '$#';
             $matches = [];
 
             if (preg_match_all($regex, $this->request->getUri(), $matches, PREG_SET_ORDER)) {
@@ -75,13 +76,15 @@ class Router
         header($_SERVER['SERVER_PROTOCOL'] . ' 404 Not Found');
     }
     public function test($routes){
-        $route = $routes['GET'][1];
+        // $route = $routes['GET'][1];
+        // var_dump($routes);
         // $uri = $route['uri'];
         $uri = "/posts/{id}";
         $request = "/posts/10";
         // $regex = preg_match('#/{([^/]*)}#', $uri);
         // $regex = "#^".$regex."$#";
-        $regex = '#^' . preg_replace('#/{([^/]*)}#', '/([^/]*?)', $uri) . '$#';
+        // $regex = '#^' . preg_replace('#/{([^/]*)}#', '/([0-9]*?)', $uri) . '$#';
+        $regex = '#^' . preg_replace('#/{([^/]*)}#', '/(.?)', $uri) . '$#';
         if (preg_match_all($regex, $request, $matches, PREG_SET_ORDER)) {
             var_dump('test');
         }

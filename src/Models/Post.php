@@ -24,9 +24,10 @@ class Post{
     }
 
     public static function create($titre, $texte){
-        $sql = DB::prepare("INSERT INTO ".self::TABLE." (title, content) VALUES (:titre, :texte);");
+        $sql = DB::prepare("INSERT INTO ".self::TABLE." (title, content) VALUES (:titre, :texte) RETURNING id;");
         $sql->execute([':titre' => $titre, ':texte' => $texte]);
-
+        $result = $sql->fetch();
+        return $result['id'];
     }
     public static function modify($id, $titre, $texte){
         $sql = DB::prepare("UPDATE ".self::TABLE." SET title=:titre ,content=:texte  WHERE id=:id ;");
@@ -34,7 +35,7 @@ class Post{
         $sql->bindValue(':texte', $texte,  PDO::PARAM_STR);
         $sql->bindValue(':id', $id,  PDO::PARAM_INT);
         $sql->execute();
-
+        
     }
     public static function delete($id){
         $sql = DB::prepare("DELETE FROM ".self::TABLE." WHERE id=:id ;");

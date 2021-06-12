@@ -1,7 +1,7 @@
 # Exam DFS22C
 Examen PHP-POO Ferial, Issa, Yann
 
-## Install
+## Install & start
 `git clone https://github.com/Yann-IT/exam-poo-dfs22c.git `  
 `  cd exam-poo-dfs22c  `  
 ` docker-compose up  `  
@@ -12,7 +12,6 @@ create new connection
  - host: localhost
  - user: postgres
  - mdp : secret
-Menu>File>Restore
-choose postgres connection
-choose postgres DB
-Start restore & open the "postgres.dump" file
+import the 2 tables in the DB folder.
+
+## Enjoy

@@ -28,8 +28,9 @@ class PostController
     public function processCreate($request)
     {
         $body = $request->getBody();
-        Post::create($body['titre'], $body['texte']);
-        // new View('Posts/index', []);
+        $id = Post::create($body['titre'], $body['texte']);
+        // echo $id;
+        header("Location: /posts/$id");
     }
 
     public function modify($request, $id){
@@ -39,9 +40,11 @@ class PostController
     public function processModify($request, $id){
         $body = $request->getBody();
         Post::modify($id, $body['title'], $body['content']);
+        header("Location: /posts/$id");
     }
     public function delete($request, $id){
         Post::delete($id);
+        header("Location: /");
     }
 
 }

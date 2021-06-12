@@ -7,11 +7,12 @@ Examen PHP-POO Ferial, Issa, Yann
 ` docker-compose up  `  
 
 ## PostGres DB
-create new connection  
- - nom : postgres
- - host: localhost
- - user: postgres
- - mdp : secret
+create new connection :  
+ - nom : postgres  
+ - host: localhost  
+ - user: postgres  
+ - mdp : secret  
+
 import the tables with the postgres.sql file in the db folder.
 
 ## Enjoy

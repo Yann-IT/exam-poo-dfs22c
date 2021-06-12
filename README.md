@@ -12,6 +12,6 @@ create new connection
  - host: localhost
  - user: postgres
  - mdp : secret
-import the 2 tables in the DB folder.
+import the tables with the postgres.sql file in the db folder.
 
 ## Enjoy
